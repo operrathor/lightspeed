@@ -20,7 +20,7 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
+const options = {
   responsive: true,
   plugins: {
     legend: {
@@ -35,7 +35,7 @@ export const options = {
 
 const labels = ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00"];
 
-export const data = {
+const data = {
   labels,
   datasets: [
     {

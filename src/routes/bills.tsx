@@ -12,6 +12,26 @@ import {
   Typography,
 } from "@mui/material";
 
+type Bill = {
+  date: string;
+  paid: boolean;
+};
+
+const bills: Bill[] = [
+  {
+    date: "June 1, 2023",
+    paid: false,
+  },
+  {
+    date: "May 1, 2023",
+    paid: true,
+  },
+  {
+    date: "April 1, 2023",
+    paid: true,
+  },
+];
+
 export default function Bills() {
   return (
     <>
@@ -26,34 +46,31 @@ export default function Bills() {
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow>
-              <TableCell>June 1, 2023</TableCell>
-              <TableCell>
-                <Chip label="Open" color="warning" size="small" />
-              </TableCell>
-              <TableCell sx={{ display: "flex", gap: 1 }}>
-                <DownloadIcon />
-                <PaymentIcon />
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>May 1, 2023</TableCell>
-              <TableCell>
-                <Chip label="Paid" color="success" size="small" />
-              </TableCell>
-              <TableCell sx={{ display: "flex" }}>
-                <DownloadIcon />
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>April 1, 2023</TableCell>
-              <TableCell>
-                <Chip label="Paid" color="success" size="small" />
-              </TableCell>
-              <TableCell sx={{ display: "flex" }}>
-                <DownloadIcon />
-              </TableCell>
-            </TableRow>
+            {bills.map((bill) => (
+              <TableRow key={bill.date}>
+                <TableCell>{bill.date}</TableCell>
+                {bill.paid ? (
+                  <>
+                    <TableCell>
+                      <Chip label="Paid" color="success" size="small" />
+                    </TableCell>
+                    <TableCell sx={{ display: "flex", gap: 1 }}>
+                      <DownloadIcon />
+                    </TableCell>
+                  </>
+                ) : (
+                  <>
+                    <TableCell>
+                      <Chip label="Open" color="warning" size="small" />
+                    </TableCell>
+                    <TableCell sx={{ display: "flex", gap: 1 }}>
+                      <DownloadIcon />
+                      <PaymentIcon />
+                    </TableCell>
+                  </>
+                )}
+              </TableRow>
+            ))}
           </TableBody>
         </TableContainer>
       </Stack>

@@ -1,6 +1,8 @@
 # Lightspeed
 
-*Note that we've also made the app available at <https://helpful-alpaca-2a733a.netlify.app/> — no local setup required.*
+A [React](https://react.dev/) and [MUI](https://mui.com/)-based interactive prototype for a fictional electricity supplier.
+
+![Screenshot](./screenshots/2-home.png)
 
 ## Install dependencies
 
